@@ -14,7 +14,16 @@
    <string>Volume property</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item>
@@ -23,21 +32,30 @@
       <string>Scalar Opacity Mapping</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
-      <property name="margin">
+      <property name="leftMargin">
        <number>0</number>
       </property>
-       <item>
-        <widget class="ctkVTKThresholdWidget" name="ScalarOpacityThresholdWidget"/>
-       </item>
-       <item>
-       <widget class="ctkVTKScalarsToColorsWidget" name="ScalarOpacityWidget">
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="ctkVTKThresholdWidget" name="ScalarOpacityThresholdWidget" native="true"/>
+      </item>
+      <item>
+       <widget class="ctkVTKScalarsToColorsWidget" name="ScalarOpacityWidget" native="true">
         <property name="minimumSize">
          <size>
           <width>0</width>
           <height>120</height>
          </size>
         </property>
-        <property name="editColors">
+        <property name="editColors" stdset="0">
          <bool>false</bool>
         </property>
        </widget>
@@ -51,11 +69,20 @@
       <string>Scalar Color Mapping</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
-      <property name="margin">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
        <number>0</number>
       </property>
       <item>
-       <widget class="ctkVTKScalarsToColorsWidget" name="ScalarColorWidget">
+       <widget class="ctkVTKScalarsToColorsWidget" name="ScalarColorWidget" native="true">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -73,11 +100,20 @@
       <string>Gradient Opacity</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="margin">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
        <number>0</number>
       </property>
       <item>
-       <widget class="ctkVTKScalarsToColorsWidget" name="GradientWidget">
+       <widget class="ctkVTKScalarsToColorsWidget" name="GradientWidget" native="true">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -134,15 +170,35 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="ctkMaterialPropertyWidget" name="MaterialPropertyWidget">
-        <property name="colorVisible">
+       <widget class="ctkMaterialPropertyWidget" name="MaterialPropertyWidget" native="true">
+        <property name="colorVisible" stdset="0">
          <bool>false</bool>
         </property>
-        <property name="opacityVisible">
+        <property name="opacityVisible" stdset="0">
          <bool>false</bool>
         </property>
-        <property name="backfaceCullingVisible">
+        <property name="backfaceCullingVisible" stdset="0">
          <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="IndependentComponentLabel">
+        <property name="text">
+         <string>Independent Components</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QCheckBox" name="IndependentComponentsCheckBox">
+        <property name="toolTip">
+         <string>Unselect this to show data as RGBA or Scalar + Opacity.</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
         </property>
        </widget>
       </item>

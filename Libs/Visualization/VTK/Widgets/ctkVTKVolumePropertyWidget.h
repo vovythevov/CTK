@@ -97,6 +97,7 @@ protected Q_SLOTS:
 
   void setInterpolationMode(int mode);
   void setShade(bool);
+  void setIndependentComponents(bool);
   void setAmbient(double value);
   void setDiffuse(double value);
   void setSpecular(double value);

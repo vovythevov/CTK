@@ -130,6 +130,8 @@ void ctkVTKVolumePropertyWidgetPrivate::setupUi(QWidget* widget)
                    q, SLOT(setInterpolationMode(int)));
   QObject::connect(this->ShadeCheckBox, SIGNAL(toggled(bool)),
                    q, SLOT(setShade(bool)));
+  QObject::connect(this->IndependentComponentsCheckBox, SIGNAL(toggled(bool)),
+                   q, SLOT(setIndependentComponents(bool)));
   QObject::connect(this->MaterialPropertyWidget, SIGNAL(ambientChanged(double)),
                    q, SLOT(setAmbient(double)));
   QObject::connect(this->MaterialPropertyWidget, SIGNAL(diffuseChanged(double)),
@@ -261,6 +263,7 @@ void ctkVTKVolumePropertyWidget::updateFromVolumeProperty()
     d->InterpolationComboBox->setCurrentIndex(
       d->VolumeProperty->GetInterpolationType() == VTK_NEAREST_INTERPOLATION ? 0 : 1);
     d->ShadeCheckBox->setChecked(d->VolumeProperty->GetShade(d->CurrentComponent));
+    d->IndependentComponentsCheckBox->setChecked(d->VolumeProperty->GetIndependentComponents());
     d->MaterialPropertyWidget->setAmbient(d->VolumeProperty->GetAmbient(d->CurrentComponent));
     d->MaterialPropertyWidget->setDiffuse(d->VolumeProperty->GetDiffuse(d->CurrentComponent));
     d->MaterialPropertyWidget->setSpecular(d->VolumeProperty->GetSpecular(d->CurrentComponent));
@@ -417,6 +420,17 @@ void ctkVTKVolumePropertyWidget::setShade(bool enable)
     return;
     }
   d->VolumeProperty->SetShade(d->CurrentComponent, enable);
+}
+
+// ----------------------------------------------------------------------------
+void ctkVTKVolumePropertyWidget::setIndependentComponents(bool enable)
+{
+  Q_D(ctkVTKVolumePropertyWidget);
+  if (!d->VolumeProperty)
+  {
+    return;
+  }
+  d->VolumeProperty->SetIndependentComponents(enable);
 }
 
 // ----------------------------------------------------------------------------
